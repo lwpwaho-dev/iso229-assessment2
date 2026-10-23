@@ -55,9 +55,7 @@ nav ul {
     flex-wrap: wrap;
 }
 
-nav ul li {
-    /* Replaced inline-block with flex item behavior */
-}
+
 
 nav ul li a {
     display: block;
