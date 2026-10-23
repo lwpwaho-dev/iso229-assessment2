@@ -1,26 +1,62 @@
+/* ==========================================
+   1. GLOBAL RESET & CSS VARIABLES (NEW FOR A3)
+   ========================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary-color: #006666;
+    --primary-dark: #004d4d;
+    --primary-light: #008080;
+    --bg-color: #f0f7f7;
+    --card-bg: #ffffff;
+    --text-color: #223333;
+    --text-light: #556666;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.6;
-    margin: 20px;
-    background-color: #f0f7f7;
-    color: #223333;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 10px;
 }
 
+/* ==========================================
+   2. ACCESSIBILITY FOCUS STATES (NEW FOR A3)
+   ========================================== */
+a:focus, button:focus, input:focus, select:focus, textarea:focus {
+    outline: 3px solid var(--primary-light);
+    outline-offset: 2px;
+}
+
+/* ==========================================
+   3. HEADER & FLEXBOX NAVIGATION (NEW FOR A3)
+   ========================================== */
 header {
-    background-color: #006666;
+    background-color: var(--primary-color);
     color: #ffffff;
     padding: 18px 20px;
+}
+
+nav {
+    background-color: var(--primary-dark);
+    margin-top: 0;
 }
 
 nav ul {
     list-style-type: none;
     padding: 0;
-    background-color: #004d4d;
-    margin-top: 0;
+    margin: 0;
+    display: flex; /* NEW FOR A3: Flexbox navigation */
+    flex-wrap: wrap;
 }
 
 nav ul li {
-    display: inline-block;
+    /* Replaced inline-block with flex item behavior */
 }
 
 nav ul li a {
@@ -31,13 +67,30 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-color: #008080;
+    background-color: var(--primary-light);
 }
 
 main {
-    background-color: #ffffff;
+    background-color: var(--card-bg);
     padding: 20px;
     margin-top: 15px;
+}
+
+/* ==========================================
+   4. CSS GRID LAYOUT FOR CARDS (NEW FOR A3)
+   ========================================== */
+.card-grid {
+    display: grid; /* NEW FOR A3: CSS Grid for 2D layouts */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 15px 0;
+}
+
+.card {
+    background-color: var(--bg-color);
+    padding: 15px;
+    border-radius: 6px;
+    border-left: 4px solid var(--primary-color);
 }
 
 table {
@@ -58,24 +111,51 @@ table th {
 fieldset {
     margin-bottom: 15px;
     padding: 15px;
+    border: 1px solid #ccc;
 }
 
 button {
     padding: 8px 15px;
     margin-right: 10px;
-    background-color: #006666;
+    background-color: var(--primary-color);
     color: white;
     border: none;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #004d4d;
+    background-color: var(--primary-dark);
+}
+
+/* ==========================================
+   5. RESPONSIVE MEDIA & IMAGES (NEW FOR A3)
+   ========================================== */
+img {
+    max-width: 100%; /* NEW FOR A3: Responsive images */
+    height: auto;
+    display: block;
 }
 
 footer {
     margin-top: 20px;
     text-align: center;
     font-size: 0.9em;
-    color: #556666;
+    color: var(--text-light);
+}
+
+/* ==========================================
+   6. RESPONSIVE MEDIA QUERIES (NEW FOR A3)
+   ========================================== */
+@media (min-width: 600px) {
+    body {
+        padding: 20px;
+    }
+}
+
+@media (min-width: 1024px) {
+    body {
+        max-width: 1200px;
+        margin: 20px auto; /* Centers container on wide screens */
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
 }
