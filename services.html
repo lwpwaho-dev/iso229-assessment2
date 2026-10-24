@@ -6,6 +6,8 @@
     <meta name="description" content="Explore surf accommodation packages, guided reef break tours, and the Annual Vanimo Surf Pro schedule.">
     <title>Vanimo Surf Lodge - Surf Packages & Competition Schedule</title>
     <link rel="stylesheet" href="style.css">
+    <!-- NEW FOR A4: Script link -->
+    <script src="script.js" defer></script>
 </head>
 <body>
 
@@ -15,9 +17,13 @@
     </header>
 
     <nav>
-        <ul>
+        <!-- NEW FOR A4: Accessible Navigation Toggle -->
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-label="Toggle navigation menu">
+            ☰ Navigation Menu
+        </button>
+        <ul id="navMenu">
             <li><a href="index.html">Home</a></li>
-            <li><a href="services.html">Packages & Competition</a></li>
+            <li><a href="services.html" class="active" aria-current="page">Packages & Competition</a></li>
             <li><a href="contact.html">Bookings & Registration</a></li>
         </ul>
     </nav>
@@ -26,11 +32,10 @@
         <section>
             <h2>Lodge Accommodation & Surf Services</h2>
             
-            <!-- NEW FOR A3: Added card-grid wrapper class for CSS Grid -->
             <div class="card-grid">
                 <article class="card">
                     <h3>1. Full Board Surf Eco-Bungalows</h3>
-                    <p>Traditional sago-palm thatched bungalows featuring ocean views, mosquito netting, power charging stations, and three daily fresh seafood and farm meals.</p>
+                    <p>Traditional sago-palm thatched bungalows featuring ocean views, mosquito netting, power charging stations, and three daily fresh seafood and farm meals (PGK 350 / night).</p>
                 </article>
 
                 <article class="card">
@@ -40,9 +45,48 @@
 
                 <article class="card">
                     <h3>3. Expat Weekend Getaway Special</h3>
-                    <p>Designed for PNG-based expatriates and business travelers seeking quick weekend surf trips via direct Air Niugini flights from Port Moresby.</p>
+                    <p>Designed for PNG-based expatriates and business travelers seeking quick weekend surf trips via direct Air Niugini flights from Port Moresby (PGK 450 / night package).</p>
                 </article>
             </div>
+        </section>
+
+        <!-- NEW FOR A4: Interactive Cost Calculator Section -->
+        <section class="calc-box">
+            <h2>Interactive Trip Cost Estimator</h2>
+            <p>Select your package options below to calculate your estimated trip cost in Papua New Guinea Kina (PGK):</p>
+            
+            <form id="calcForm" style="margin-top: 15px;">
+                <p>
+                    <label for="calc-pkg"><strong>Select Package:</strong></label><br>
+                    <select id="calc-pkg" class="form-input">
+                        <option value="350">Full Board Eco-Bungalow (PGK 350 / night)</option>
+                        <option value="450">Expat Weekend Getaway (PGK 450 / night)</option>
+                        <option value="200">Vanimo Surf Pro Competitor Pass (PGK 200 / night)</option>
+                    </select>
+                </p>
+
+                <p style="margin-top: 10px;">
+                    <label for="calc-nights"><strong>Number of Nights:</strong></label><br>
+                    <input type="number" id="calc-nights" value="3" min="1" max="30" class="form-input">
+                </p>
+
+                <p style="margin-top: 10px;">
+                    <label for="calc-surfers"><strong>Number of Guests / Surfers:</strong></label><br>
+                    <input type="number" id="calc-surfers" value="1" min="1" max="10" class="form-input">
+                </p>
+
+                <p style="margin-top: 10px;">
+                    <strong>Add-On Options:</strong><br>
+                    <input type="checkbox" id="calc-board">
+                    <label for="calc-board">Surfboard Rental (+PGK 50 / day per person)</label><br>
+                    <input type="checkbox" id="calc-pickup" checked>
+                    <label for="calc-pickup">Vanimo Airport (VAI) Return Transfer (+PGK 100 per person)</label>
+                </p>
+
+                <div class="calc-result" aria-live="polite">
+                    Estimated Total Cost: <strong id="calcTotal">PGK 1,150</strong>
+                </div>
+            </form>
         </section>
 
         <section>

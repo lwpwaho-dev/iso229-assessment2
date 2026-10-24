@@ -6,6 +6,9 @@
     <meta name="description" content="Vanimo Surf Lodge offers premier beachside accommodation and world-class reef breaks in Sandaun Province, Papua New Guinea. Home of the Annual Vanimo Surf Pro.">
     <title>Vanimo Surf Lodge - Eco Resort & Annual Surf Competition</title>
     <link rel="stylesheet" href="style.css">
+
+    <!-- NEW FOR A4: Script link -->
+    <script src="script.js" defer></script>
 </head>
 <body>
 
@@ -15,8 +18,12 @@
     </header>
 
     <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
+        <!-- NEW FOR A4: Accessible Navigation Toggle -->
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-label="Toggle navigation menu">
+            ☰ Navigation Menu
+        </button>
+        <ul id="navMenu">
+            <li><a href="index.html" class="active" aria-current="page">Home</a></li>
             <li><a href="services.html">Packages & Competition</a></li>
             <li><a href="contact.html">Bookings & Registration</a></li>
         </ul>
@@ -27,9 +34,8 @@
             <h2>Welcome to Vanimo Surf Lodge</h2>
             <p>Situated directly beachfront at Lido Village in West Sepik (Sandaun) Province, Vanimo Surf Lodge offers uncrowded, premier tropical reef breaks. Whether you are an international surf tourist, an expat based in PNG, or a local wave rider, our lodge provides sustainable beachfront accommodation and direct access to legendary waves like Lido Right, Lido Left, and Sarp Point.</p>
             
-            <!-- Welcome to Vanimo Image -->
             <figure style="margin-top: 1.5rem;">
-                <img src="welcome-to-vanimo.jpg" alt="Aerial view of Vanimo coastline, airstrip, and surrounding green hills">
+                <img src="welcome-to-vanimo.jpg" alt="Scenic aerial view of Vanimo coastline, airstrip, and surrounding green hills">
                 <figcaption>Figure 1: Scenic aerial view of Vanimo, Sandaun Province.</figcaption>
             </figure>
         </section>
@@ -37,7 +43,6 @@
         <section>
             <h2>Home of the Annual Vanimo Surf Pro</h2>
             
-            <!-- Pro Surfer Image -->
             <figure style="margin-bottom: 1.5rem;">
                 <img src="vsl-prosurfer.jpg" alt="Surfer riding a clean tropical wave off the coast of Vanimo">
                 <figcaption>Figure 2: World-class reef breaks during the swell season at Vanimo Surf Lodge.</figcaption>
@@ -59,7 +64,6 @@
         <section>
             <h2>Surf Lodge Atmosphere</h2>
             <figure>
-                <!-- REPLACED: Placeholder swapped with vanimo-waves.jpg -->
                 <img src="vanimo-waves.jpg" alt="Surfer carving a wave at Lido Break with uncrowded ocean swells">
                 <figcaption>Figure 3: Uncrowded world-class waves at Lido Break near Vanimo Surf Lodge.</figcaption>
             </figure>

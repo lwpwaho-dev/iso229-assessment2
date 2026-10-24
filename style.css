@@ -1,5 +1,5 @@
 /* ==========================================
-   1. GLOBAL RESET & CSS VARIABLES (NEW FOR A3)
+   1. GLOBAL RESET & CSS VARIABLES (NEW FOR A4)
    ========================================== */
 * {
     box-sizing: border-box;
@@ -15,6 +15,9 @@
     --card-bg: #ffffff;
     --text-color: #223333;
     --text-light: #556666;
+    --error-color: #c92a2a;
+    --success-color: #2b8a3e;
+    --accent-yellow: #fcc419;
 }
 
 body {
@@ -34,7 +37,7 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
 }
 
 /* ==========================================
-   3. HEADER & FLEXBOX NAVIGATION (NEW FOR A3)
+   3. HEADER & FLEXBOX NAVIGATION (NEW FOR A4)
    ========================================== */
 header {
     background-color: var(--primary-color);
@@ -45,17 +48,16 @@ header {
 nav {
     background-color: var(--primary-dark);
     margin-top: 0;
+    position: relative;
 }
 
 nav ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
-    display: flex; /* NEW FOR A3: Flexbox navigation */
+    display: flex;
     flex-wrap: wrap;
 }
-
-
 
 nav ul li a {
     display: block;
@@ -64,8 +66,21 @@ nav ul li a {
     text-decoration: none;
 }
 
-nav ul li a:hover {
+nav ul li a:hover, nav ul li a.active {
     background-color: var(--primary-light);
+}
+
+/* --- NEW FOR A4: Mobile Navigation Toggle --- */
+.nav-toggle {
+    display: none;
+    background: var(--primary-dark);
+    color: #ffffff;
+    border: none;
+    font-size: 1.1rem;
+    padding: 10px 18px;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
 }
 
 main {
@@ -75,7 +90,7 @@ main {
 }
 
 /* ==========================================
-   4. CSS GRID LAYOUT FOR CARDS (NEW FOR A3)
+   4. CSS GRID LAYOUT FOR CARDS (NEW FOR A4)
    ========================================== */
 .card-grid {
     display: grid; /* NEW FOR A3: CSS Grid for 2D layouts */
@@ -110,19 +125,77 @@ fieldset {
     margin-bottom: 15px;
     padding: 15px;
     border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* --- NEW FOR A4: Form Styling (Extracted from Inline Attributes) --- */
+.form-input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.input-error {
+    border-color: var(--error-color) !important;
+    background-color: #fff5f5;
 }
 
 button {
-    padding: 8px 15px;
+    padding: 10px 20px;
     margin-right: 10px;
     background-color: var(--primary-color);
     color: white;
     border: none;
+    border-radius: 4px;
     cursor: pointer;
+    font-size: 1rem;
 }
 
 button:hover {
     background-color: var(--primary-dark);
+}
+
+/* --- NEW FOR A4: Interactive Calculator & Feedback Display --- */
+.calc-box {
+    background-color: #e6f2f2;
+    padding: 20px;
+    border-radius: 6px;
+    border: 1px solid var(--primary-light);
+    margin: 20px 0;
+}
+
+.calc-result {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: var(--primary-dark);
+    color: #ffffff;
+    font-size: 1.2rem;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.feedback-msg {
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    display: none;
+}
+
+.feedback-msg.success {
+    display: block;
+    background-color: #d3f9d8;
+    color: var(--success-color);
+    border: 1px solid #b2f2bb;
+}
+
+.feedback-msg.error {
+    display: block;
+    background-color: #ffe3e3;
+    color: var(--error-color);
+    border: 1px solid #ffc9c9;
 }
 
 /* ==========================================
@@ -142,8 +215,29 @@ footer {
 }
 
 /* ==========================================
-   6. RESPONSIVE MEDIA QUERIES (NEW FOR A3)
+   6. RESPONSIVE MEDIA QUERIES (NEW FOR A4)
    ========================================== */
+@media (max-width: 767px) {
+    /* NEW FOR A4: Collapsible Navigation on Mobile */
+    .nav-toggle {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    nav ul.nav-open {
+        display: flex;
+    }
+
+    nav ul li a {
+        border-top: 1px solid var(--primary-color);
+    }
+}
+
 @media (min-width: 600px) {
     body {
         padding: 20px;
